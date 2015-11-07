@@ -1,0 +1,19 @@
+2015-11-07T17:02:30.314+0400 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2015-11-07T17:02:30.315+0400 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2015-11-07T17:02:30.329+0400 I JOURNAL  [durability] Durability thread started
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] MongoDB starting : pid=3310 port=27017 dbpath=/data/db 64-bit host=Eliass-MBP
+2015-11-07T17:02:30.329+0400 I JOURNAL  [journal writer] Journal writer thread started
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] 
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] db version v3.0.6
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] git version: nogitversion
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] build info: Darwin yosemitevm.local 14.5.0 Darwin Kernel Version 14.5.0: Wed Jul 29 02:26:53 PDT 2015; root:xnu-2782.40.9~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] allocator: system
+2015-11-07T17:02:30.329+0400 I CONTROL  [initandlisten] options: {}
+2015-11-07T17:02:30.351+0400 I NETWORK  [initandlisten] waiting for connections on port 27017
+2015-11-07T17:02:38.117+0400 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50864 #1 (1 connection now open)
+2015-11-07T17:02:38.122+0400 I NETWORK  [conn1] end connection 127.0.0.1:50864 (0 connections now open)
+2015-11-07T17:02:38.124+0400 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50865 #2 (1 connection now open)
+2015-11-07T17:02:39.255+0400 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50877 #3 (2 connections now open)
+2015-11-07T17:02:39.261+0400 I NETWORK  [conn3] end connection 127.0.0.1:50877 (1 connection now open)
+2015-11-07T17:02:39.263+0400 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:50878 #4 (2 connections now open)
