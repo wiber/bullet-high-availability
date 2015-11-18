@@ -40,7 +40,7 @@ Meteor.methods( {
     console.log(Meteor.users.findOne({_id:idSelector}))
 
     if ( Meteor.isServer ) {
-      console.log( to + ' server  ' + Meteor.isServer )
+      console.log( to + ' server ' + Meteor.isServer )
     } else {
       console.log( to + ' server ' + Meteor.isServer )
     }
