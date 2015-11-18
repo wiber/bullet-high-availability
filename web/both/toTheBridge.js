@@ -1,6 +1,7 @@
-
 App = {}
-App.connect = function (from,to,object) {console.log(args)}
+App.connect = function ( from, to, object ) {
+  console.log( args )
+}
 App.step = function ( stepTo ) {
   console.log( stepTo )
     // on landing somewhere, call this, (when called on server? not inconceivable..)
@@ -44,31 +45,33 @@ pub = function () {
 sub = function () {
   Meteor.subscribe( "userObjs", this.userId );
 }
+
+
+// code to run on server at startup
+truncateLogs = function () {
+  spawn = Npm.require( 'child_process' ).spawn,
+    //grep = spawn('grep', ['ssh']);
+    grep = spawn( 'grep' );
+  grep.on( 'close', function ( code, signal ) {
+    console.log( ' child process terminated due to receipt of signal ' + signal );
+    var fs = Npm.require( 'fs' )
+    var appRoot = process.env.PWD;
+    webl = fs.truncate( appRoot + '/app.log', 0, function () {
+      console.log( ' done overwriting app.log in '+ appRoot )
+    } )
+  } );
+
+  // send SIGHUP to process
+  grep.kill( 'SIGHUP' );
+}
+
 Meteor.startup( function () {
 
   if ( Meteor.isClient ) {
     sub();
   } else {
     pub();
+    truncateLogs()
   }
 
 } );
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-    spawn = Npm.require('child_process').spawn,
-            grep = spawn('grep', ['ssh']);
-
-
-    grep.on('close', function (code, signal) {
-      console.log(' child process terminated due to receipt of signal '+signal);
-      var fs = Npm.require('fs')
-      var appRoot = process.env.PWD;
-      webl = fs.truncate(appRoot+'/web.log', 0, function(){console.log(' done overwriting web.log')})
-    });
-
-    // send SIGHUP to process
-    grep.kill('SIGHUP');
-  });
-}

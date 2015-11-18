@@ -1,0 +1,13 @@
+[[[[[ ~/github/bullet-high-availability/search ]]]]]
+
+=> Started proxy.
+=> Meteor 1.2.1 is available. Update this project with 'meteor update'.
+=> Started MongoDB.
+[34mI20151118-16:49:19.430(0)? [39mCluster: connecting to 'mongodb' discovery backend
+[34mI20151118-16:49:19.431(0)? [39mCluster: with options:  {}
+[34mI20151118-16:49:19.431(0)? [39mCluster: registering this node as service 'search'
+[34mI20151118-16:49:19.431(0)? [39mCluster:    endpoint url = http://localhost:6000
+[34mI20151118-16:49:19.431(0)? [39mCluster:    balancer url = undefined
+=> Started your app.
+
+=> App running at: http://www.mydomainname.com
