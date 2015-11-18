@@ -16,6 +16,7 @@ function trap_ctrlc ()
 # initialise trap to call trap_ctrlc function
 # when signal 2 (SIGINT) is received
 
+# this breaks when another process listens to the signal ..?
 trap "trap_ctrlc" 2
 for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r &
 echo "'sh env.sh'" &
