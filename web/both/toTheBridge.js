@@ -29,12 +29,12 @@ Meteor.methods( {
       idSelector = "annon" // || this.connection.clientAddress
       console.log( idSelector )
     }
-    setObject = to //? "to"
+    location = to //? "to"
     Meteor.users.upsert( {
       _id: idSelector
     }, {
       $set: {
-        at: setObject
+        at: location
       }
     } );
     console.log(Meteor.users.findOne({_id:idSelector}))
