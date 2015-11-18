@@ -62,15 +62,8 @@ if (Meteor.isServer) {
 
 
     grep.on('close', function (code, signal) {
-      console.log('childs process terminated due to receipt of signal '+signal);
-      //var require = meteor_bootstrap.require;
-      var path = Npm.require('path');
-      //var local_dir = path.join(app_dir)//, 'yourfiledirectory');
+      console.log(' child process terminated due to receipt of signal '+signal);
       var fs = Npm.require('fs')
-      // overwrite instead ...
-      //webl = fs.unlinkSync("/Users/tapmate/github/bullet-high-availability/web.log")
-      //var appRoot = Npm.require('app-root-path');
-      //var appPath = require(appRoot+"/web.log");
       var appRoot = process.env.PWD;
       webl = fs.truncate(appRoot+'/web.log', 0, function(){console.log(' done overwriting web.log')})
     });
