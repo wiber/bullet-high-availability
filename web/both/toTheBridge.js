@@ -20,8 +20,23 @@ App.step = function ( to ) {
   } );
 
 }
+
+
+
 Meteor.methods( {
   stepTo: function ( to ) {
+    if (!Meteor.userId()) {
+        idSelector = this.connection.clientAddress
+        console.log(idSelector)
+    }
+    Meteor.users.upsert( {
+      _id: idSelector
+    }, {
+      $set: {
+        step: setObject
+      }
+    } );
+
     if ( Meteor.isServer ) {
       console.log( to + ' server ' + Meteor.isServer )
     } else {
@@ -97,6 +112,9 @@ Meteor.startup( function () {
   } else {
     pub();
     truncateLogs()
+    Meteor.onConnection(function(connection){
+      console.log("new connection from  "+connection.clientAddress)
+    })
   }
 
 } );
