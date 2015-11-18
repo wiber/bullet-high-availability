@@ -25,24 +25,27 @@ App.step = function ( to ) {
 
 Meteor.methods( {
   stepTo: function ( to ) {
-    if (!Meteor.userId()) {
-        idSelector = this.connection.clientAddress
-        console.log(idSelector)
+    if ( !Meteor.userId() ) {
+      idSelector = "annon" // || this.connection.clientAddress
+      console.log( idSelector )
     }
+    setObject = to //? "to"
     Meteor.users.upsert( {
       _id: idSelector
     }, {
       $set: {
-        step: setObject
+        at: setObject
       }
     } );
+    console.log(Meteor.users.findOne({_id:idSelector}))
 
     if ( Meteor.isServer ) {
       console.log( to + ' server ' + Meteor.isServer )
     } else {
       console.log( to + ' server ' + Meteor.isServer )
     }
-    return 42;
+
+    return this.connection.clientAddress
   }
 } );
 pub = function () {
@@ -112,9 +115,9 @@ Meteor.startup( function () {
   } else {
     pub();
     truncateLogs()
-    Meteor.onConnection(function(connection){
-      console.log("new connection from  "+connection.clientAddress)
-    })
+    Meteor.onConnection( function ( connection ) {
+      console.log( "new connection from  " + connection.clientAddress )
+    } )
   }
 
 } );
