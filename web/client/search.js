@@ -13,6 +13,9 @@ PackageSearch.fetchData = function ( searchText, options, success ) {
 
 Template.searchResult.helpers( {
   getPackages: function () {
+    // we want to get jump to the first one on enter
+    // or 0-9 on keyup
+    // later
     return PackageSearch.getData( {
       transform: function ( matchText, regExp ) {
         return matchText.replace( regExp, "<b>$&</b>" )
@@ -56,6 +59,9 @@ Template.searchBox.events( {
     }
 
     PackageSearch.search( text );
+    if (e.keyCode == 13) {
+      console.log(e)
+    }
   }, 200 )
 } );
 
