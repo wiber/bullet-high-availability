@@ -30,8 +30,17 @@ Template.searchResult.helpers( {
 Template.searchResult.events( {
   "click a.to": function ( e, template ) {
     console.log( e )
-    App.step( e.target.href )
-    return false;
+    function stepper(e) {
+      try {
+        App.step( e.target.href )
+      } catch (err) {
+        Meteor.Error(5, "linkdeath "+ err)
+      } finally {
+        return false;
+      }
+    }
+    return stepper()
+
   }
 } );
 
